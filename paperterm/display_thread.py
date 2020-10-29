@@ -2,7 +2,7 @@ from __future__ import print_function, unicode_literals
 import threading, Queue
 # import spidev as SPI
 # import EPD_driver
-import epd2in7
+import epd2in7_partial
 import Image, ImageDraw, ImageFont
 import pyte
 import time
@@ -14,23 +14,23 @@ class DisplayThread(threading.Thread):
         self.display_q = display_q
         self.bus = 0
         self.device = 0
-        self.x_max = 176
-        self.y_max = 264
+        self.x_max = 264
+        self.y_max = 176
         self.size_x = size_x
         self.size_y = size_y
 
         self.stoprequest = threading.Event()
 
-        self.epd = epd2in7.EPD()
-        self.epd.init(self.epd.lut_full_update)
-        self.image = Image.new('1', (epd2in7.EPD_HEIGHT, epd2in7.EPD_WIDTH), 255)
+        self.epd = epd2in7_partial.EPD(partial_refresh_limit=32, fast_refresh=True)
+        self.epd.init()
+        self.image = Image.new('1', (epd2in7_partial.EPD_HEIGHT, epd2in7_partial.EPD_WIDTH), 255)
         self.font = ImageFont.load('terminus_12.pil')
         self.line_height = 16
         #self.font = ImageFont.truetype('terminus.ttf', 12)
         self.draw = ImageDraw.Draw(self.image)
         self.clear_display()
         self.clear_display()
-        self.epd.init(self.epd.lut_partial_update)
+        self.epd.init()
 
         self.screen = pyte.Screen(self.size_x, self.size_y)
         self.stream = pyte.Stream(self.screen)
