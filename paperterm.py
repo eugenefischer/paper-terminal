@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 from __future__ import print_function, unicode_literals
 # import signal
-from paperterm import *
+from paperterm import display_thread
+from paperterm import login_screen
+from paperterm import shell_thread
 from logging.handlers import SysLogHandler
 import logging
 import argparse
