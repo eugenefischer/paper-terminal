@@ -1,5 +1,5 @@
 from __future__ import print_function, unicode_literals
-import threading, queue
+import threading, Queue
 # import spidev as SPI
 # import EPD_driver
 from rpi_epd2in7 import epd2in7_partial
