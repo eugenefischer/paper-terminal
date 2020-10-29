@@ -3,7 +3,7 @@ import threading, Queue
 # import spidev as SPI
 # import EPD_driver
 import epd2in7_partial
-import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 import pyte
 import time
 import logging
