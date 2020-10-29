@@ -8,6 +8,7 @@ from logging.handlers import SysLogHandler
 import logging
 import argparse
 import sys
+import Queue
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--no-loadkeys", help="Disable loadkeys being ran prior to shell", action="store_true")
