@@ -1,5 +1,5 @@
 from __future__ import print_function, unicode_literals
-import threading, Queue
+import threading, queue
 # import spidev as SPI
 # import EPD_driver
 import epd2in7_partial
