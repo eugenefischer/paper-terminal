@@ -125,11 +125,13 @@ class DisplayThread(threading.Thread):
         self.draw_cursor()
         logging.debug("To be redrawed ...")
         try:
-            (image_part, x, y) = self.redraw_image_part(image_old, self.image)
-            self.epd.set_frame_memory(image_part, x, y)
-            self.epd.display_frame()
-            self.epd.set_frame_memory(image_part, x, y)
-            self.epd.display_frame()
+            #old code
+            #(image_part, x, y) = self.redraw_image_part(image_old, self.image)
+            #self.epd.set_frame_memory(image_part, x, y)
+            #self.epd.display_frame()
+            #self.epd.set_frame_memory(image_part, x, y)
+            #self.epd.display_frame()
+            self.epd.smart_update(self.image)
         except Exception:
             logging.exception("Exception in partial redraw")
 
