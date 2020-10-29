@@ -38,8 +38,8 @@ class DisplayThread(threading.Thread):
         self.cursor_enabled = False
 
     def clear_display(self):
-        self.epd.clear_frame_memory(0xFF)
-        self.epd.display_frame()
+        image = Image.new('1', (self.epd.width, self.epd.height), 255)
+        self.epd.display_frame(image)
 
     def draw_border(self, image):
         data = image.load()
