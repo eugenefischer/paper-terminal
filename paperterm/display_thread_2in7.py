@@ -119,7 +119,7 @@ class DisplayThread(threading.Thread):
         Print list line-by-line
         """
         image_old = self.image.copy()
-        self.image = Image.new('1', (epd2in9.EPD_HEIGHT, epd2in9.EPD_WIDTH), 255)
+        self.image = Image.new('1', (epd2in7_partial.EPD_HEIGHT, epd2in7_partial.EPD_WIDTH), 255)
         self.draw = ImageDraw.Draw(self.image)
         self.draw.multiline_text((0, 0), "\n".join(input_list).encode("utf-8"), font=self.font)
         self.draw_cursor()
