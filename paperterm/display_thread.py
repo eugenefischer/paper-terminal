@@ -155,7 +155,7 @@ class DisplayThread(threading.Thread):
         while not self.stoprequest.isSet():
             try:
                 self.refresh_screen()
-            except Exception, e:
+            except Exception:
                 #print(str(e))
                 logging.exception("display thread exception")
             time.sleep(0.03) # omg, some callback or shit?
