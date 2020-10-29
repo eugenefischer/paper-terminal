@@ -41,7 +41,7 @@ TERM_WIDTH=args.term_width
 TERM_HEIGHT=args.term_height
 
 def start():
-    display_q = queue()
+    display_q = queue.Queue()
 
     logging.debug("Starting DisplayThread with dimensions: %s x %s" % (TERM_WIDTH, TERM_HEIGHT))
     display_thread = DisplayThread(TERM_WIDTH, TERM_HEIGHT, display_q)
